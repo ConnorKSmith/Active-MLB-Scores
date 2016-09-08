@@ -29,6 +29,7 @@ public class Scores {
         SimpleDateFormat sdf =
         new SimpleDateFormat(DATE_FORMAT);
         Calendar c1 = Calendar.getInstance(); // today
+        Parser.prepareToParse("MLB", sdf.format(c1.getTime()));
         url = new URL("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?jsonp=true&sport=MLB&period=" + sdf.format(c1.getTime()));
         String query = "";
 

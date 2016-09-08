@@ -13,6 +13,8 @@ package Scores;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,6 +31,18 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class Parser {
+    // Prepare URL to parse using given sport and date in yyMMdd format
+    public static void prepareToParse(String sport, String date)throws 
+            MalformedURLException, IOException, org.json.simple.parser.ParseException, 
+            ParserConfigurationException, SAXException{
+        
+        URL url;
+        url = 
+          new URL("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?jsonp=true&sport="
+                  + sport + "&period=" + date);
+    }
+    
+    
     public static void parseLeague(String response) throws org.json.simple.parser.ParseException, ParserConfigurationException, SAXException, IOException
     {
             //Parse JSON response and create league matching sport
