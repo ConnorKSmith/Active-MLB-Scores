@@ -37,6 +37,10 @@ public class League {
         }
         
         public void displayActiveGames(){
-            new ActiveGamesDisplay(activeGames, 1).setVisible(true);
+            new ActiveGamesDisplay(this, activeGames, 1).setVisible(true);
+        }
+        
+        public String getName(){
+            return leagueName;
         }
 }
