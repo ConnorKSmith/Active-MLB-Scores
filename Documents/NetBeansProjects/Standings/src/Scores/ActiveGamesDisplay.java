@@ -361,8 +361,10 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ateam0.setEditable(false);
         ateam0.setText("jTextField1");
 
+        hteam0.setEditable(false);
         hteam0.setText("jTextField2");
         hteam0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,8 +372,10 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
             }
         });
 
+        ascore0.setEditable(false);
         ascore0.setText("jTextField3");
 
+        hscore0.setEditable(false);
         hscore0.setText("jTextField4");
         hscore0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,38 +383,55 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
             }
         });
 
+        period0.setEditable(false);
         period0.setText("jTextField5");
 
+        ateam1.setEditable(false);
         ateam1.setText("jTextField1");
 
+        hteam1.setEditable(false);
         hteam1.setText("jTextField2");
 
+        ascore1.setEditable(false);
         ascore1.setText("jTextField3");
 
+        hscore1.setEditable(false);
         hscore1.setText("jTextField4");
 
+        period1.setEditable(false);
         period1.setText("jTextField5");
 
+        ateam2.setEditable(false);
         ateam2.setText("jTextField1");
 
+        hteam2.setEditable(false);
         hteam2.setText("jTextField2");
 
+        ascore2.setEditable(false);
         ascore2.setText("jTextField3");
 
+        hscore2.setEditable(false);
         hscore2.setText("jTextField4");
 
+        period2.setEditable(false);
         period2.setText("jTextField5");
 
+        ateam3.setEditable(false);
         ateam3.setText("jTextField6");
 
+        period3.setEditable(false);
         period3.setText("jTextField7");
 
+        hteam3.setEditable(false);
         hteam3.setText("jTextField8");
 
+        hscore3.setEditable(false);
         hscore3.setText("jTextField9");
 
+        ascore3.setEditable(false);
         ascore3.setText("jTextField10");
 
+        games.setEditable(false);
         games.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         games.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         games.setText("ACTIVE GAMES:");
@@ -443,6 +464,7 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
             }
         });
 
+        leaguename.setEditable(false);
         leaguename.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         leaguename.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         leaguename.setText("League: ");
