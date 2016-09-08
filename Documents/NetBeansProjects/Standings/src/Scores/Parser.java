@@ -65,12 +65,11 @@ public class Parser {
             String ascore = "";
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
-                if (node instanceof Element) {
-                    aname = node.getAttributes().getNamedItem("display_name").getNodeValue() + " " +
-                            node.getAttributes().getNamedItem("nickname").getNodeValue();
+                aname = node.getAttributes().getNamedItem("display_name").getNodeValue() + " " +
+                        node.getAttributes().getNamedItem("nickname").getNodeValue();
                     
-                    ascore = node.getAttributes().getNamedItem("score").getNodeValue();
-                }
+                ascore = node.getAttributes().getNamedItem("score").getNodeValue();
+                
 
             }
             // grab home team info
@@ -80,11 +79,10 @@ public class Parser {
             
             for (int i = 0; i < nodeList1.getLength(); i++) {
                 Node node1 = nodeList1.item(i);
-                if (node1 instanceof Element) {
-                    hname = node1.getAttributes().getNamedItem("display_name").getNodeValue() + " " +
-                            node1.getAttributes().getNamedItem("nickname").getNodeValue();
-                    hscore = node1.getAttributes().getNamedItem("score").getNodeValue();
-                }
+                hname = node1.getAttributes().getNamedItem("display_name").getNodeValue() + " " +
+                        node1.getAttributes().getNamedItem("nickname").getNodeValue();
+                hscore = node1.getAttributes().getNamedItem("score").getNodeValue();
+                
             }
             // Grab game-state 
             NodeList gamestate = document.getElementsByTagName("gamestate");
