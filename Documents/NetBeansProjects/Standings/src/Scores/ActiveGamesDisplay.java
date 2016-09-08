@@ -23,13 +23,17 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
             
     ArrayList<ActiveGame> activegames;
     
-    public ActiveGamesDisplay(ArrayList<ActiveGame> activegames, int pagenumber) {
+    League league;
+    
+    public ActiveGamesDisplay(League league, ArrayList<ActiveGame> activegames, int pagenumber) {
         initComponents();
         this.activegames = activegames;
-        
+        this.league = league;
         
             int numgames = activegames.size();
+            
             games.setText("ACTIVE GAMES: " + numgames);
+            leaguename.setText("League: " + league.getName());
             
             ActiveGame ag = null;
             page = pagenumber;
@@ -292,7 +296,7 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
             
             
           }
-            if (numgames < 1){
+            if (numgames < 5){
                 page1.setVisible(false);
                 
             }
@@ -353,6 +357,7 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
         page2 = new javax.swing.JToggleButton();
         page3 = new javax.swing.JToggleButton();
         page4 = new javax.swing.JToggleButton();
+        leaguename = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -438,6 +443,15 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
             }
         });
 
+        leaguename.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        leaguename.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        leaguename.setText("League: ");
+        leaguename.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaguenameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -509,6 +523,10 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
                                     .addComponent(games, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 33, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(leaguename, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -551,7 +569,9 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
                     .addComponent(page2)
                     .addComponent(page4)
                     .addComponent(page3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(leaguename, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addComponent(games, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -571,29 +591,33 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
         // TODO add your handling code here:
         page = 1;
         this.dispose();
-        new ActiveGamesDisplay(activegames, 1).setVisible(true);
+        new ActiveGamesDisplay(league, activegames, 1).setVisible(true);
     }//GEN-LAST:event_page1MouseClicked
 
     private void page2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_page2MouseClicked
         // TODO add your handling code here:
         page = 2;
         this.dispose();
-        new ActiveGamesDisplay(activegames, 2).setVisible(true);
+        new ActiveGamesDisplay(league, activegames, 2).setVisible(true);
     }//GEN-LAST:event_page2MouseClicked
 
     private void page3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_page3MouseClicked
         // TODO add your handling code here:
         page = 3;
         this.dispose();
-        new ActiveGamesDisplay(activegames, 3).setVisible(true);
+        new ActiveGamesDisplay(league, activegames, 3).setVisible(true);
     }//GEN-LAST:event_page3MouseClicked
 
     private void page4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_page4MouseClicked
         // TODO add your handling code here:
         page = 4;
         this.dispose();
-        new ActiveGamesDisplay(activegames, 4).setVisible(true);
+        new ActiveGamesDisplay(this.league, activegames, 4).setVisible(true);
     }//GEN-LAST:event_page4MouseClicked
+
+    private void leaguenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaguenameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_leaguenameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -648,6 +672,7 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
     private javax.swing.JTextField hteam1;
     private javax.swing.JTextField hteam2;
     private javax.swing.JTextField hteam3;
+    private javax.swing.JTextField leaguename;
     private javax.swing.JToggleButton page1;
     private javax.swing.JToggleButton page2;
     private javax.swing.JToggleButton page3;
