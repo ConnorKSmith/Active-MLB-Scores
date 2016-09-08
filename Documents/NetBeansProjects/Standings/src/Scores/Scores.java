@@ -44,7 +44,6 @@ public class Scores {
         ps.print(query);
         ps.close();
 
-        League mlb = new League("Major League Baseball");
         
         //get result
         BufferedReader br = new BufferedReader(new InputStreamReader(urlc
@@ -67,7 +66,7 @@ public class Scores {
         
         
         // Call parser to parse JSON data
-        Parser.parseLeague(information, mlb);
+        Parser.parseLeague(information);
         br.close();
     }
     

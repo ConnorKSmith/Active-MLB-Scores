@@ -29,12 +29,14 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class Parser {
-    public static void parseLeague(String response, League league) throws org.json.simple.parser.ParseException, ParserConfigurationException, SAXException, IOException
+    public static void parseLeague(String response) throws org.json.simple.parser.ParseException, ParserConfigurationException, SAXException, IOException
     {
-            //Parse JSON response 
+            //Parse JSON response and create league matching sport
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject) parser.parse(response);
             String sport = (String) obj.get("sport");
+            
+            League league = new League(sport);
             
             // Each game sent to parseGame as xml data
             JSONArray games = (JSONArray) obj.get("games");
@@ -94,7 +96,8 @@ public class Parser {
                 
             
             // Select only active games
-            if (!node1.getAttributes().getNamedItem("status").getNodeValue().equals("Final")){
+            if (!node1.getAttributes().getNamedItem("status").getNodeValue().equals("Final")
+                    && !node1.getAttributes().getNamedItem("status").getNodeValue().equals("Pre-Game")){
                  league.addActiveGame(
                    new ActiveGame(
                            ID,
