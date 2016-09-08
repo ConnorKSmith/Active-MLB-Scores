@@ -110,6 +110,20 @@ public class Parser {
             // Select only active games
             if (!node1.getAttributes().getNamedItem("status").getNodeValue().equals("Final")
                     && !node1.getAttributes().getNamedItem("status").getNodeValue().equals("Pre-Game")){
+                if (node1.getAttributes().getNamedItem("status").getNodeValue().equals("Delayed")){
+                    league.addActiveGame(
+                        new ActiveGame(
+                           ID,
+                           hname,
+                           hscore,
+                           aname,
+                           ascore,
+                           "Delayed"     
+                        )
+                    );
+                    return;
+                }
+                
                  league.addActiveGame(
                    new ActiveGame(
                            ID,
