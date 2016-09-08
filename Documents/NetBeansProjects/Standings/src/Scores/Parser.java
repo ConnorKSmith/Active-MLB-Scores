@@ -94,9 +94,7 @@ public class Parser {
                 
             
             // Select only active games
-            if (node1.getAttributes().getNamedItem("display_status2").getNodeValue()!= "final" 
-                    && node1.getAttributes().getNamedItem("display_status2").getNodeValue()!= "ppnd"
-                    && node1.getAttributes().getNamedItem("display_status2").getNodeValue()!= ""){
+            if (!node1.getAttributes().getNamedItem("status").getNodeValue().equals("Final")){
                  league.addActiveGame(
                    new ActiveGame(
                            ID,
