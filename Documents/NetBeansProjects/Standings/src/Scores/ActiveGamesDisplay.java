@@ -310,6 +310,9 @@ public class ActiveGamesDisplay extends javax.swing.JFrame  {
                 page4.setVisible(false);
             }
             
+            // only close activegames frame, not the entire application
+            setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+            
     }
         
     
