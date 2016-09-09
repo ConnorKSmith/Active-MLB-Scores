@@ -11,10 +11,14 @@ package Scores;
  * @author Connor
  */
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -31,7 +35,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class Parser {
-    // Prepare URL to parse using given sport and date in yyMMdd format
+    // Prepare URL to parse using user-selected sport and date in yyMMdd format
     public static void prepareToParse(String sport, String date)throws 
             MalformedURLException, IOException, org.json.simple.parser.ParseException, 
             ParserConfigurationException, SAXException{
@@ -40,6 +44,46 @@ public class Parser {
         url = 
           new URL("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?jsonp=true&sport="
                   + sport + "&period=" + date);
+        
+        String query = "";
+        //make connection
+        URLConnection urlc = url.openConnection();
+
+        //use post mode
+        urlc.setDoOutput(true);
+        urlc.setAllowUserInteraction(false);
+
+        //send query
+        PrintStream ps = new PrintStream(urlc.getOutputStream());
+        ps.print(query);
+        ps.close();
+
+        
+        //get result
+        BufferedReader br = new BufferedReader(new InputStreamReader(urlc
+            .getInputStream()));
+        String l = null;
+        
+        //Repair JSON data and skip first and last lines returned 
+        String information = "{";
+        int n = 0;
+        while ((l=br.readLine())!=null) {
+            if (n != 0){
+                information = information + l;
+            }
+            n++;
+            
+        
+        }
+        information = information.substring(0, information.length() - 2);
+        
+        
+        
+        // Call parser to parse JSON data
+        Parser.parseLeague(information);
+        br.close();
+    
+                  
     }
     
     
