@@ -42,7 +42,7 @@ public class Parser {
         
         URL url;
         url = 
-          new URL("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?jsonp=true&sport="
+          new URL(""
                   + sport + "&period=" + date);
         
         String query = "";
